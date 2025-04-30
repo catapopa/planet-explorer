@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlanetExplorer.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1746a97cc17a6f4c086fefa871c7cf62d8b7ea2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e57ed062dafaac98cb3295784e266b8788b356f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlanetExplorer.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlanetExplorer.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
