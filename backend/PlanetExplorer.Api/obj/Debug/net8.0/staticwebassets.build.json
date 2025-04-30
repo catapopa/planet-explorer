@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "k5jeXxy7g673tV4G3PW82BwqWQm1sUtQ9BvAODe9cR4=",
+  "Source": "PlanetExplorer.Api",
+  "BasePath": "_content/PlanetExplorer.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
