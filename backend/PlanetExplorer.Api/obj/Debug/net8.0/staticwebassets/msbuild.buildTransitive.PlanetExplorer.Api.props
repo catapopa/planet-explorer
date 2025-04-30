@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/PlanetExplorer.Api.props" />
-</Project>

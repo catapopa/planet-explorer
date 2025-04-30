@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/PlanetExplorer.Api.props" />
-</Project>
