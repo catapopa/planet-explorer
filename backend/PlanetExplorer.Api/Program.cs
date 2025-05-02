@@ -12,6 +12,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PlanetDbContext>(options =>
     options.UseSqlite("Data Source=planets.db"));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -28,6 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowAngularApp");
 app.UseHttpsRedirection();
 app.UseAuthorization(); // Needed for later auth
 app.MapControllers(); // Enable controller endpoints
