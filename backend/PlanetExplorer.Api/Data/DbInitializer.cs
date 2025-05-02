@@ -41,7 +41,7 @@ public static class DbInitializer
         var planet1 = new Planet
         {
             Name = "Aurelia",
-            ImageUrl = "https://example.com/images/aurelia.jpg",
+            ImageUrl = "https://images.unsplash.com/photo-1632395627727-3b97d0724814?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             Description = "Lush forests and a breathable atmosphere.",
             Status = PlanetStatus.OK,
             ExploredByTeamId = team1.Id
@@ -50,7 +50,7 @@ public static class DbInitializer
         var planet2 = new Planet
         {
             Name = "Zebulon",
-            ImageUrl = "https://example.com/images/zebulon.jpg",
+            ImageUrl = "https://images.unsplash.com/photo-1632395627760-72e6eca7f9c7?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             Description = "Frozen surface, potential for life beneath.",
             Status = PlanetStatus.NotOk,
             ExploredByTeamId = team2.Id
@@ -59,14 +59,14 @@ public static class DbInitializer
         var planet3 = new Planet
         {
             Name = "Xigia",
-            ImageUrl = "https://example.com/images/xigia.jpg",
+            ImageUrl = "https://images.unsplash.com/photo-1701690774955-7d06cfd3f857?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             Status = PlanetStatus.Todo,
         };
 
-         var planet4 = new Planet
+        var planet4 = new Planet
         {
             Name = "Zyphor",
-            ImageUrl = "https://example.com/images/zyphor.jpg",
+            ImageUrl = "https://images.unsplash.com/photo-1632395627732-005012dbc286?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             Status = PlanetStatus.EnRoute,
         };
 

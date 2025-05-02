@@ -2,9 +2,7 @@
   <h2>Planets</h2>
   <ul>
     <li *ngFor="let planet of planets">
-      <h3>{{ planet.name }}</h3>
-      <p>{{ planet.description }}</p>
-      <img [src]="planet.imageUrl" alt="{{ planet.name }}" />
+      <app-planet-detail [planet]="planet"></app-planet-detail>
     </li>
   </ul>
 </div>

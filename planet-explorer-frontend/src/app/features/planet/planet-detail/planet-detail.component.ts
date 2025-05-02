@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Planet } from 'src/app/core/models/planet.model';
+import { Planet, PlanetStatus } from 'src/app/core/models/planet.model';
 import { PlanetService } from 'src/app/core/services/planet.service';
 
 @Component({
@@ -9,7 +9,8 @@ import { PlanetService } from 'src/app/core/services/planet.service';
   styleUrls: ['./planet-detail.component.scss'],
 })
 export class PlanetDetailComponent implements OnInit {
-  planet: Planet | undefined;
+  @Input() planet: Planet | undefined;
+  readonly PlanetStatus = PlanetStatus;
 
   constructor(
     private route: ActivatedRoute,

@@ -1,6 +1,20 @@
 <div *ngIf="planet">
   <h2>{{ planet.name }}</h2>
-  <p>{{ planet.description }}</p>
   <img [src]="planet.imageUrl" alt="{{ planet.name }}" />
-  <p>Status: {{ planet.status }}</p>
+  <p>Status: {{ PlanetStatus[planet.status] }}</p>
+  <p>{{ planet.description }}</p>
+
+  <div *ngIf="planet.exploredByTeam">
+    <h3>Team Info</h3>
+    <p><strong>Captain:</strong> {{ planet.exploredByTeam.captain.name }}</p>
+
+    <div *ngIf="planet.exploredByTeam.robots?.length">
+      <p><strong>Robots:</strong></p>
+      <ul>
+        <li *ngFor="let robot of planet.exploredByTeam.robots">
+          {{ robot.robotNumber }}
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
