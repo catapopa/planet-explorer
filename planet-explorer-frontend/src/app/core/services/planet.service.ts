@@ -18,4 +18,8 @@ export class PlanetService {
   getPlanet(id: number): Observable<Planet> {
     return this.http.get<Planet>(`${this.apiUrl}/${id}`);
   }
+
+  updatePlanet(id: number, updated: Partial<Planet>): Observable<Planet> {
+    return this.http.put<Planet>(`${this.apiUrl}/${id}`, { ...updated, id });
+  }
 }

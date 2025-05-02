@@ -3,6 +3,10 @@
   <ul>
     <li *ngFor="let planet of planets">
       <app-planet-detail [planet]="planet"></app-planet-detail>
+      <app-planet-detail-form
+        [planet]="planet"
+        (planetUpdated)="updatePlanet(planet)"
+      ></app-planet-detail-form>
     </li>
   </ul>
 </div>

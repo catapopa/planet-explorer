@@ -21,4 +21,11 @@ export class PlanetListComponent implements OnInit {
       this.planets = planets;
     });
   }
+
+  updatePlanet(planet: Planet) {
+    this.planetService.updatePlanet(planet.id, planet).subscribe({
+      next: () => alert('Planet updated!'),
+      error: () => alert('Update failed.'),
+    });
+  }
 }

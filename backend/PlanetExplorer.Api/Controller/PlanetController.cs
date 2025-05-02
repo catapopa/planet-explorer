@@ -16,13 +16,6 @@ public class PlanetsController : ControllerBase
         _context = context;
     }
 
-    // GET: api/planets
-    // [HttpGet]
-    // public async Task<ActionResult<IEnumerable<Planet>>> GetPlanets()
-    // {
-    //     return await _context.Planets.ToListAsync();
-    // }
-
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Planet>>> GetPlanets()
     {
