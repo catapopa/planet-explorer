@@ -14,6 +14,13 @@ builder.Services.AddDbContext<PlanetDbContext>(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<PlanetDbContext>();
+    db.Database.EnsureCreated();
+    DbInitializer.Seed(db);
+}
+
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {

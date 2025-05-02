@@ -1,17 +1,21 @@
 namespace PlanetExplorer.Api.Models;
 
-public enum PlanetStatus {
+public enum PlanetStatus
+{
     OK,
-    NotOK,
-    TODO,
+    NotOk,
+    Todo,
     EnRoute
 }
 
-public class Planet {
+public class Planet
+{
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string ImageUrl { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public PlanetStatus Status { get; set; }
-    public int RobotCount { get; set; }
+
+    public int? ExploredByTeamId { get; set; }
+    public Team? ExploredByTeam { get; set; } = null!;
 }
