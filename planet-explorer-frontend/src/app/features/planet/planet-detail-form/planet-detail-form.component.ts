@@ -9,6 +9,7 @@ import {
   selector: 'app-planet-detail-form',
   templateUrl: './planet-detail-form.component.html',
   styleUrls: ['./planet-detail-form.component.scss'],
+  standalone: false,
 })
 export class PlanetDetailFormComponent {
   @Input() planet!: Planet;

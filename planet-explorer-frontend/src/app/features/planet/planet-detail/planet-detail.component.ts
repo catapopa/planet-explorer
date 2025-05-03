@@ -7,6 +7,7 @@ import { PlanetService } from 'src/app/core/services/planet.service';
   selector: 'app-planet-detail',
   templateUrl: './planet-detail.component.html',
   styleUrls: ['./planet-detail.component.scss'],
+  standalone: false,
 })
 export class PlanetDetailComponent implements OnInit {
   @Input() planet: Planet | undefined;

@@ -6,6 +6,7 @@ import { PlanetService } from 'src/app/core/services/planet.service';
   selector: 'app-planet-list',
   templateUrl: './planet-list.component.html',
   styleUrls: ['./planet-list.component.scss'],
+  standalone: false,
 })
 export class PlanetListComponent implements OnInit {
   planets: Planet[] = [];
