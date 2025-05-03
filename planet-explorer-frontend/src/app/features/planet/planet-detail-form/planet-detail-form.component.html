@@ -1,27 +1,25 @@
-<div *ngIf="planet" class="planet-detail">
-  <h2>{{ planet.name }}</h2>
-  <img [src]="planet.imageUrl" alt="{{ planet.name }}" />
+<form (ngSubmit)="updatePlanet()" style="margin-top: 1rem">
+  <mat-form-field appearance="fill" class="form-field full-width">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      [(ngModel)]="planet.description"
+      name="description"
+      required
+    ></textarea>
+  </mat-form-field>
 
-  <form (ngSubmit)="updatePlanet()" #planetForm="ngForm">
-    <label>
-      Description:
-      <textarea
-        [(ngModel)]="planet.description"
-        name="description"
-        required
-      ></textarea>
-    </label>
+  <mat-form-field appearance="fill" class="form-field full-width">
+    <mat-label>Status</mat-label>
+    <mat-select [(ngModel)]="planet.status" name="status" required>
+      <mat-option
+        *ngFor="let status of PlanetStatus | keyvalue"
+        [value]="status.key"
+      >
+        {{ status.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <label>
-      Status:
-      <select [(ngModel)]="planet.status" name="status" required>
-        <option [ngValue]="0">OK</option>
-        <option [ngValue]="1">!OK</option>
-        <option [ngValue]="2">TODO</option>
-        <option [ngValue]="3">En Route</option>
-      </select>
-    </label>
-
-    <button type="submit">Update</button>
-  </form>
-</div>
+  <button mat-raised-button color="primary" type="submit">Update</button>
+</form>

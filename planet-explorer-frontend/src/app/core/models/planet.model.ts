@@ -7,11 +7,17 @@ export interface Planet {
   exploredByTeam?: Team;
 }
 
+export interface UpdatePlanet {
+  id: number;
+  description: string;
+  status: PlanetStatus;
+}
+
 export enum PlanetStatus {
-  OK,
-  NotOk,
-  Todo,
-  EnRoute,
+  OK = 'OK',
+  NotOK = 'Not OK',
+  Todo = 'Todo',
+  EnRoute = 'En Route',
 }
 
 export interface Team {

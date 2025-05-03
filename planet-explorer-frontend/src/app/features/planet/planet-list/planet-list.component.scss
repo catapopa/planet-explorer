@@ -1,32 +1,13 @@
-.planet-list {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
 
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
+.planet-card {
+  padding: 1rem;
+}
 
-  ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    background: #12121c;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    transition: transform 0.2s ease-in-out;
-
-    &:hover {
-      transform: translateY(-4px);
-    }
-  }
+.full-width {
+  width: 100%;
 }

@@ -18,6 +18,10 @@ namespace PlanetExplorer.Api.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Planet>()
+                .Property(p => p.Status)
+                .HasConversion<string>();
+
             modelBuilder.Entity<Team>()
                 .HasOne(t => t.Captain)
                 .WithMany()
@@ -34,12 +38,7 @@ namespace PlanetExplorer.Api.Data
                 .HasOne(p => p.ExploredByTeam)
                 .WithMany()
                 .HasForeignKey(p => p.ExploredByTeamId)
-                .OnDelete(DeleteBehavior.SetNull);
-
-            modelBuilder.Entity<Planet>()
-                .HasOne(p => p.ExploredByTeam)
-                .WithMany()
-                .HasForeignKey(p => p.ExploredByTeamId)
+                .OnDelete(DeleteBehavior.SetNull)
                 .IsRequired(false);
 
         }

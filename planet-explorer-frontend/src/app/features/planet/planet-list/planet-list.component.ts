@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Planet } from 'src/app/core/models/planet.model';
+import { Planet, UpdatePlanet } from 'src/app/core/models/planet.model';
 import { PlanetService } from 'src/app/core/services/planet.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class PlanetListComponent implements OnInit {
     });
   }
 
-  updatePlanet(planet: Planet) {
+  updatePlanet(planet: UpdatePlanet) {
     this.planetService.updatePlanet(planet.id, planet).subscribe({
       next: () => alert('Planet updated!'),
       error: () => alert('Update failed.'),

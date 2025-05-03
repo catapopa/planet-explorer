@@ -8,6 +8,16 @@ import { PlanetDetailComponent } from './features/planet/planet-detail/planet-de
 import { HttpClientModule } from '@angular/common/http';
 import { PlanetDetailFormComponent } from './features/planet/planet-detail-form/planet-detail-form.component';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -16,7 +26,22 @@ import { FormsModule } from '@angular/forms';
     PlanetDetailComponent,
     PlanetDetailFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatListModule,
+    MatIconModule,
+    MatDividerModule,
+    MatChipsModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

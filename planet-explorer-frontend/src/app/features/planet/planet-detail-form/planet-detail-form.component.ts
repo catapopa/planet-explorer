@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Planet } from 'src/app/core/models/planet.model';
-import { PlanetService } from 'src/app/core/services/planet.service';
+import {
+  Planet,
+  PlanetStatus,
+  UpdatePlanet,
+} from 'src/app/core/models/planet.model';
 
 @Component({
   selector: 'app-planet-detail-form',
@@ -9,19 +12,17 @@ import { PlanetService } from 'src/app/core/services/planet.service';
 })
 export class PlanetDetailFormComponent {
   @Input() planet!: Planet;
-  @Output() planetUpdated = new EventEmitter<Planet>();
+  @Output() planetUpdated = new EventEmitter<UpdatePlanet>();
 
-  constructor(private planetService: PlanetService) {}
+  readonly PlanetStatus = PlanetStatus;
 
   updatePlanet() {
-    const updatePayload: Partial<Planet> = {
+    console.log('PlanetDetailFormComponent: updatePlanet', this.planet.status);
+    const updatePayload: UpdatePlanet = {
+      id: this.planet.id,
       description: this.planet.description,
       status: this.planet.status,
     };
-
-    this.planetService.updatePlanet(this.planet.id, updatePayload).subscribe({
-      next: () => alert('Planet updated!'),
-      error: () => alert('Update failed.'),
-    });
+    this.planetUpdated.emit(updatePayload);
   }
 }

@@ -1,12 +1,20 @@
-<div class="planet-list">
+<mat-toolbar color="primary">
+  <span>🚀 Planet Explorer</span>
+</mat-toolbar>
+
+<div class="planet-container" style="padding: 1rem">
   <h2>Planets</h2>
-  <ul>
-    <li *ngFor="let planet of planets">
-      <app-planet-detail [planet]="planet"></app-planet-detail>
-      <app-planet-detail-form
-        [planet]="planet"
-        (planetUpdated)="updatePlanet(planet)"
-      ></app-planet-detail-form>
-    </li>
-  </ul>
+
+  <div class="planet-grid">
+    <mat-card *ngFor="let planet of planets" class="planet-card">
+      <mat-card-title>{{ planet.name }}</mat-card-title>
+      <mat-card-content>
+        <app-planet-detail [planet]="planet"></app-planet-detail>
+        <app-planet-detail-form
+          [planet]="planet"
+          (planetUpdated)="updatePlanet($event)"
+        ></app-planet-detail-form>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
