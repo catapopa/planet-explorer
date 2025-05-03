@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "planet-explorer-frontend:build:production"
+              "buildTarget": "planet-explorer-frontend:build:production"
             },
             "development": {
-              "browserTarget": "planet-explorer-frontend:build:development"
+              "buildTarget": "planet-explorer-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "planet-explorer-frontend:build"
+            "buildTarget": "planet-explorer-frontend:build"
           }
         },
         "test": {
