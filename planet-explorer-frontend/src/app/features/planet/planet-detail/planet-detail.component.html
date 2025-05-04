@@ -1,13 +1,26 @@
-<div *ngIf="planet" style="padding: 1rem">
+<div *ngIf="planet">
   <mat-card>
-    <mat-card-header>
+    <mat-card-header class="card-header">
       <mat-card-title>{{ planet.name }}</mat-card-title>
+      <button mat-mini-fab color="primary" (click)="toggleEditMode()">
+        <mat-icon>edit</mat-icon>
+      </button>
     </mat-card-header>
-    <!-- <img mat-card-image [src]="planet.imageUrl" alt="{{ planet.name }}" /> -->
+
+    <img mat-card-image [src]="planet.imageUrl" alt="{{ planet.name }}" />
 
     <mat-card-content>
-      <p><strong>Status:</strong> {{ planet.status }}</p>
-      <p>{{ planet.description }}</p>
+      <ng-container *ngIf="!isEditMode">
+        <p><strong>Status:</strong> {{ planet.status || "-" }}</p>
+        <p>{{ planet.description || "no description yet" }}</p></ng-container
+      >
+
+      <ng-container *ngIf="isEditMode">
+        <app-planet-detail-form
+          [planet]="planet"
+          (planetUpdated)="updatePlanet($event)"
+        ></app-planet-detail-form>
+      </ng-container>
 
       <ng-container *ngIf="planet.exploredByTeam">
         <h3>Team Info</h3>
@@ -17,7 +30,10 @@
 
         <mat-list *ngIf="planet.exploredByTeam.robots?.length">
           <mat-chip *ngFor="let robot of planet.exploredByTeam.robots">
-            <mat-icon>android</mat-icon> {{ robot.robotNumber }}
+            <div class="robot-chip">
+              <mat-icon>smart_toy</mat-icon>
+              <span>{{ robot.robotNumber }}</span>
+            </div>
           </mat-chip>
         </mat-list>
       </ng-container>

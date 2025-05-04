@@ -1,17 +1,16 @@
-<form (ngSubmit)="updatePlanet()" style="margin-top: 1rem">
-  <mat-form-field appearance="fill" class="form-field full-width">
+<form (ngSubmit)="updatePlanet()" style="display: flex; flex-direction: column">
+  <mat-form-field>
     <mat-label>Description</mat-label>
     <textarea
       matInput
       [(ngModel)]="planet.description"
       name="description"
-      required
     ></textarea>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="form-field full-width">
+  <mat-form-field>
     <mat-label>Status</mat-label>
-    <mat-select [(ngModel)]="planet.status" name="status" required>
+    <mat-select [(ngModel)]="planet.status" name="status">
       <mat-option
         *ngFor="let status of PlanetStatus | keyvalue"
         [value]="status.key"

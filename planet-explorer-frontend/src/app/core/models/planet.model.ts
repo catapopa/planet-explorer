@@ -1,3 +1,5 @@
+import { Team } from './team.model';
+
 export interface Planet {
   id: number;
   name: string;
@@ -18,23 +20,4 @@ export enum PlanetStatus {
   NotOK = 'Not OK',
   Todo = 'Todo',
   EnRoute = 'En Route',
-}
-
-export interface Team {
-  id: number;
-  captainId: number;
-  captain: Captain;
-  robots: Robot[];
-}
-
-export interface Captain {
-  id: number;
-  name: string;
-}
-
-export interface Robot {
-  id: number;
-  robotNumber: string;
-  teamId: number;
-  team?: Team | null;
 }

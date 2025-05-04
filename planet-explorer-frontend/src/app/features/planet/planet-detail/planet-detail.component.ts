@@ -5,8 +5,14 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ActivatedRoute } from '@angular/router';
-import { Planet, PlanetStatus } from 'src/app/core/models/planet.model';
+import {
+  Planet,
+  PlanetStatus,
+  UpdatePlanet,
+} from 'src/app/core/models/planet.model';
 import { PlanetService } from 'src/app/core/services/planet.service';
+import { PlanetDetailFormComponent } from '../planet-detail-form/planet-detail-form.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-planet-detail',
@@ -17,13 +23,17 @@ import { PlanetService } from 'src/app/core/services/planet.service';
     CommonModule,
     MatCardModule,
     MatChipsModule,
-    MatIconModule,
     MatListModule,
+    MatIconModule,
+    MatButtonModule,
+    PlanetDetailFormComponent,
   ],
 })
 export class PlanetDetailComponent implements OnInit {
   @Input() planet: Planet | undefined;
+
   readonly PlanetStatus = PlanetStatus;
+  isEditMode = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,9 +45,26 @@ export class PlanetDetailComponent implements OnInit {
     this.getPlanet(id);
   }
 
+  toggleEditMode() {
+    this.isEditMode = !this.isEditMode;
+  }
+
+  getPlanetRobotNumbers(planet: Planet): string[] {
+    return (
+      planet.exploredByTeam?.robots.map((robot) => robot.robotNumber) || []
+    );
+  }
+
   getPlanet(id: number): void {
     this.planetService.getPlanet(id).subscribe((planet) => {
       this.planet = planet;
+    });
+  }
+
+  updatePlanet(planet: UpdatePlanet) {
+    this.planetService.updatePlanet(planet.id, planet).subscribe({
+      next: () => alert('Planet updated!'),
+      error: () => alert('Update failed.'),
     });
   }
 }

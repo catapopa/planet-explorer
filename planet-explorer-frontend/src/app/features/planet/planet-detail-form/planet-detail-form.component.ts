@@ -11,6 +11,7 @@ import {
   PlanetStatus,
   UpdatePlanet,
 } from 'src/app/core/models/planet.model';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-planet-detail-form',
@@ -25,6 +26,7 @@ import {
     MatSelectModule,
     MatOptionModule,
     MatButtonModule,
+    MatIconModule,
   ],
 })
 export class PlanetDetailFormComponent {
@@ -32,9 +34,9 @@ export class PlanetDetailFormComponent {
   @Output() planetUpdated = new EventEmitter<UpdatePlanet>();
 
   readonly PlanetStatus = PlanetStatus;
+  statusValues = Object.keys(PlanetStatus).filter((k) => isNaN(Number(k)));
 
   updatePlanet() {
-    console.log('PlanetDetailFormComponent: updatePlanet', this.planet.status);
     const updatePayload: UpdatePlanet = {
       id: this.planet.id,
       description: this.planet.description,

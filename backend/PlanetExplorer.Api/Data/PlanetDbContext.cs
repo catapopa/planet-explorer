@@ -40,7 +40,6 @@ namespace PlanetExplorer.Api.Data
                 .HasForeignKey(p => p.ExploredByTeamId)
                 .OnDelete(DeleteBehavior.SetNull)
                 .IsRequired(false);
-
         }
     }
 }

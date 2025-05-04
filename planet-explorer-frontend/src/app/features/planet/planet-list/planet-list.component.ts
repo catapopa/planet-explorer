@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { Component, OnInit } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Planet, UpdatePlanet } from 'src/app/core/models/planet.model';
+import { Planet } from 'src/app/core/models/planet.model';
 import { PlanetService } from 'src/app/core/services/planet.service';
 import { PlanetDetailComponent } from '../planet-detail/planet-detail.component';
-import { PlanetDetailFormComponent } from '../planet-detail-form/planet-detail-form.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-planet-list',
@@ -17,7 +18,8 @@ import { PlanetDetailFormComponent } from '../planet-detail-form/planet-detail-f
     MatCardModule,
     MatToolbarModule,
     PlanetDetailComponent,
-    PlanetDetailFormComponent,
+    MatIconModule,
+    MatButtonModule,
   ],
 })
 export class PlanetListComponent implements OnInit {
@@ -32,13 +34,6 @@ export class PlanetListComponent implements OnInit {
   getPlanets(): void {
     this.planetService.getPlanets().subscribe((planets) => {
       this.planets = planets;
-    });
-  }
-
-  updatePlanet(planet: UpdatePlanet) {
-    this.planetService.updatePlanet(planet.id, planet).subscribe({
-      next: () => alert('Planet updated!'),
-      error: () => alert('Update failed.'),
     });
   }
 }
