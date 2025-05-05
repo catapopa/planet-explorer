@@ -3,7 +3,7 @@
     <mat-card-header class="card-header">
       <mat-card-title>{{ planet.name }}</mat-card-title>
       <button mat-mini-fab color="primary" (click)="toggleEditMode()">
-        <mat-icon>edit</mat-icon>
+        <mat-icon>{{ isEditMode ? "check" : "edit" }}</mat-icon>
       </button>
     </mat-card-header>
 
@@ -12,14 +12,14 @@
     <mat-card-content>
       <ng-container *ngIf="!isEditMode">
         <p><strong>Status:</strong> {{ planet.status || "-" }}</p>
-        <p>{{ planet.description || "no description yet" }}</p></ng-container
-      >
+        <p>{{ planet.description || "no description yet" }}</p>
+      </ng-container>
 
       <ng-container *ngIf="isEditMode">
         <app-planet-detail-form
           [planet]="planet"
           (planetUpdated)="updatePlanet($event)"
-        ></app-planet-detail-form>
+        />
       </ng-container>
 
       <ng-container *ngIf="planet.exploredByTeam">
