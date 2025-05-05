@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PlanetExplorer.Api.Data;
 using PlanetExplorer.Api.Models;
+using PlanetExplorer.Api.Dtos;
 
 namespace PlanetExplorer.Api.Controllers;
 
@@ -40,27 +41,19 @@ public class PlanetsController : ControllerBase
 
     // PUT: api/planets/5
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdatePlanet(int id, Planet updated)
+    public async Task<IActionResult> UpdatePlanet(int id, UpdatePlanetDto dto)
     {
-        if (id != updated.Id)
-            return BadRequest();
+        var planet = await _context.Planets.FindAsync(id);
+        if (planet == null)
+            return NotFound();
 
-        _context.Entry(updated).State = EntityState.Modified;
+        planet.Description = dto.Description;
+        planet.Status = dto.Status;
 
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!PlanetExists(id))
-                return NotFound();
-            else
-                throw;
-        }
-
+        await _context.SaveChangesAsync();
         return NoContent();
     }
+
 
     // POST: api/planets
     [HttpPost]
