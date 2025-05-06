@@ -2,6 +2,7 @@
   <mat-card>
     <mat-card-header class="card-header">
       <mat-card-title>{{ planet.name }}</mat-card-title>
+
       <button
         mat-mini-fab
         *ngIf="isCaptain"
@@ -21,8 +22,8 @@
 
     <mat-card-content>
       <ng-container *ngIf="!isEditMode">
-        <p><strong>Status:</strong> {{ planet.status || "-" }}</p>
-        <p>{{ planet.description || "no description yet" }}</p>
+        <p>{{ planet.description || "no description yet." }}</p>
+        <app-planet-status [status]="planet.status"></app-planet-status>
       </ng-container>
 
       <ng-container *ngIf="isEditMode">
@@ -31,22 +32,23 @@
           (planetUpdated)="updatePlanet($event)"
         />
       </ng-container>
-
-      <ng-container *ngIf="planet.exploredByTeam">
-        <h3>Team Info</h3>
-        <p>
-          <strong>Captain:</strong> {{ planet.exploredByTeam.captain.name }}
-        </p>
-
-        <mat-list *ngIf="planet.exploredByTeam.robots?.length">
-          <mat-chip *ngFor="let robot of planet.exploredByTeam.robots">
-            <div class="robot-chip">
-              <mat-icon>smart_toy</mat-icon>
+      <br />
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title><strong>Team Information</strong></mat-panel-title>
+        </mat-expansion-panel-header>
+        <ng-container *ngIf="planet.exploredByTeam">
+          <p>
+            <strong>Captain:</strong> {{ planet.exploredByTeam.captain.name }}
+          </p>
+          <mat-list *ngIf="planet.exploredByTeam.robots?.length">
+            <span><strong>Robots: </strong> </span>
+            <mat-chip *ngFor="let robot of planet.exploredByTeam.robots">
               <span>{{ robot.robotNumber }}</span>
-            </div>
-          </mat-chip>
-        </mat-list>
-      </ng-container>
+            </mat-chip>
+          </mat-list>
+        </ng-container>
+      </mat-expansion-panel>
     </mat-card-content>
   </mat-card>
 </div>

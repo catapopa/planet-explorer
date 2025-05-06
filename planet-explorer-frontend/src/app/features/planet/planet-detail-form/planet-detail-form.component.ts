@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   Planet,
-  PlanetStatus,
+  PlanetStatusRecord,
   UpdatePlanet,
 } from 'src/app/core/models/planet.model';
 import { MatIconModule } from '@angular/material/icon';
@@ -33,8 +33,7 @@ export class PlanetDetailFormComponent {
   @Input() planet!: Planet;
   @Output() planetUpdated = new EventEmitter<UpdatePlanet>();
 
-  readonly PlanetStatus = PlanetStatus;
-  statusValues = Object.keys(PlanetStatus).filter((k) => isNaN(Number(k)));
+  readonly PlanetStatusRecord = PlanetStatusRecord;
 
   updatePlanet() {
     const updatePayload: UpdatePlanet = {

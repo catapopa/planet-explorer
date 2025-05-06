@@ -14,7 +14,7 @@ public class Planet
     public string Name { get; set; } = string.Empty;
     public string ImageUrl { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public PlanetStatus Status { get; set; }
+    public PlanetStatus Status { get; set; } = PlanetStatus.Todo;
 
     public int? ExploredByTeamId { get; set; }
     public Team? ExploredByTeam { get; set; } = null!;

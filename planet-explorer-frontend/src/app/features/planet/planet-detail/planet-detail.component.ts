@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
 import {
   Planet,
   PlanetStatus,
@@ -13,6 +14,7 @@ import { PlanetService } from 'src/app/core/services/planet.service';
 import { PlanetDetailFormComponent } from '../planet-detail-form/planet-detail-form.component';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { PlanetStatusComponent } from 'src/app/shared/planet-status/planet-status.component';
 
 @Component({
   selector: 'app-planet-detail',
@@ -26,7 +28,9 @@ import { AuthService } from 'src/app/core/auth/auth.service';
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    MatExpansionModule,
     PlanetDetailFormComponent,
+    PlanetStatusComponent,
   ],
 })
 export class PlanetDetailComponent implements OnInit {

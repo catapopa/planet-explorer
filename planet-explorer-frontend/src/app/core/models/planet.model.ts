@@ -17,7 +17,14 @@ export interface UpdatePlanet {
 
 export enum PlanetStatus {
   OK = 'OK',
-  NotOK = 'Not OK',
+  NotOk = 'NotOk',
   Todo = 'Todo',
-  EnRoute = 'En Route',
+  EnRoute = 'EnRoute',
 }
+
+export const PlanetStatusRecord: Record<PlanetStatus, string> = {
+  [PlanetStatus.OK]: 'OK',
+  [PlanetStatus.NotOk]: 'Not OK',
+  [PlanetStatus.Todo]: 'To Do',
+  [PlanetStatus.EnRoute]: 'En Route',
+};

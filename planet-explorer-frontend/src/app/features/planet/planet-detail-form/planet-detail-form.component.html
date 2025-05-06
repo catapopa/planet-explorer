@@ -6,7 +6,7 @@
     <mat-label>Status</mat-label>
     <mat-select [(ngModel)]="planet.status" name="status">
       <mat-option
-        *ngFor="let status of PlanetStatus | keyvalue"
+        *ngFor="let status of PlanetStatusRecord | keyvalue"
         [value]="status.key"
       >
         {{ status.value }}

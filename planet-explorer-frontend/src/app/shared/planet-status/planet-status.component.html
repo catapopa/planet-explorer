@@ -1,0 +1,7 @@
+<span class="status">
+  <strong>Status:</strong>
+  <mat-icon [ngStyle]="{ color: statusMap[status]?.color }">
+    {{ statusMap[status]?.icon }}
+  </mat-icon>
+  <span>{{ PlanetStatusRecord[status] || "-" }}</span>
+</span>
