@@ -54,6 +54,18 @@ dotnet run
 
 Server runs on: http://localhost:5000
 
+## 🔒 Security Note
+
+**⚠️ Do NOT commit secrets or tokens to source control.**
+
+This project originally had a hardcoded JWT secret accidentally pushed. The secret has been **revoked and replaced**. Future developers should:
+
+- Store secrets in environment variables or secret managers.
+- Add `appsettings.*.json` and `.env` to `.gitignore`.
+- Rotate secrets immediately if exposed.
+
+Recommended: use [dotnet user-secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) for local development.
+
 ### Frontend Steup
 ```bash
 cd planet-explorer-frontend
