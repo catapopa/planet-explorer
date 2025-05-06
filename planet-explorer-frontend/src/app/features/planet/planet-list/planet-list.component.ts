@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
   selector: 'app-planet-list',
@@ -26,12 +27,18 @@ import { Router } from '@angular/router';
 export class PlanetListComponent implements OnInit {
   planets: Planet[] = [];
   isLoggedIn = false;
+  isCaptain = false;
 
-  constructor(private planetService: PlanetService, private router: Router) {}
+  constructor(
+    private planetService: PlanetService,
+    private router: Router,
+    private auth: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.getPlanets();
     this.isLoggedIn = !!localStorage.getItem('token');
+    this.isCaptain = this.auth.isCaptain();
   }
 
   login() {
@@ -41,6 +48,7 @@ export class PlanetListComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     this.isLoggedIn = false;
+    this.isCaptain = false;
   }
 
   getPlanets(): void {

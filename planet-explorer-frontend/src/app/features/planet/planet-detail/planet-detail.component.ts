@@ -13,7 +13,6 @@ import {
 import { PlanetService } from 'src/app/core/services/planet.service';
 import { PlanetDetailFormComponent } from '../planet-detail-form/planet-detail-form.component';
 import { MatButtonModule } from '@angular/material/button';
-import { AuthService } from 'src/app/core/auth/auth.service';
 import { PlanetStatusComponent } from 'src/app/shared/planet-status/planet-status.component';
 
 @Component({
@@ -33,21 +32,14 @@ import { PlanetStatusComponent } from 'src/app/shared/planet-status/planet-statu
     PlanetStatusComponent,
   ],
 })
-export class PlanetDetailComponent implements OnInit {
+export class PlanetDetailComponent {
   @Input() planet: Planet | undefined;
+  @Input() isCaptain: boolean | undefined;
 
   readonly PlanetStatus = PlanetStatus;
   isEditMode = false;
-  isCaptain = false;
 
-  constructor(
-    private planetService: PlanetService,
-    private auth: AuthService
-  ) {}
-
-  ngOnInit(): void {
-    this.isCaptain = this.auth.isCaptain();
-  }
+  constructor(private planetService: PlanetService) {}
 
   toggleEditMode() {
     this.isEditMode = !this.isEditMode;

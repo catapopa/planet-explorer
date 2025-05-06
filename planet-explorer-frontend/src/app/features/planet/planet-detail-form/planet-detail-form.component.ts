@@ -31,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class PlanetDetailFormComponent {
   @Input() planet!: Planet;
+  @Input() isCaptain!: Planet;
   @Output() planetUpdated = new EventEmitter<UpdatePlanet>();
 
   readonly PlanetStatusRecord = PlanetStatusRecord;

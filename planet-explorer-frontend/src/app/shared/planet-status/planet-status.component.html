@@ -1,7 +1,13 @@
-<span class="status">
+<span class="status" *ngIf="status">
   <strong>Status:</strong>
   <mat-icon [ngStyle]="{ color: statusMap[status]?.color }">
     {{ statusMap[status]?.icon }}
   </mat-icon>
   <span>{{ PlanetStatusRecord[status] || "-" }}</span>
 </span>
+
+<span *ngIf="!status">
+  <strong>Status:</strong>
+  <mat-icon>help</mat-icon>
+  <span>Unknown</span></span
+>

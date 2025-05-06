@@ -7,5 +7,8 @@
 </mat-toolbar>
 
 <div *ngFor="let planet of planets" class="planet-grid">
-  <app-planet-detail [planet]="planet"></app-planet-detail>
+  <app-planet-detail
+    [planet]="planet"
+    [isCaptain]="isCaptain"
+  ></app-planet-detail>
 </div>

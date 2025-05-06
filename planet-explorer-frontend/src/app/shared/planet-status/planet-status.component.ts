@@ -14,7 +14,7 @@ import {
   imports: [CommonModule, MatIconModule],
 })
 export class PlanetStatusComponent {
-  @Input() status!: PlanetStatus;
+  @Input() status: PlanetStatus | undefined;
 
   readonly PlanetStatus = PlanetStatus;
   readonly PlanetStatusRecord = PlanetStatusRecord;
