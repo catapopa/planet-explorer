@@ -2,7 +2,12 @@
   <mat-card>
     <mat-card-header class="card-header">
       <mat-card-title>{{ planet.name }}</mat-card-title>
-      <button mat-mini-fab color="primary" (click)="toggleEditMode()">
+      <button
+        mat-mini-fab
+        *ngIf="isCaptain"
+        color="primary"
+        (click)="toggleEditMode()"
+      >
         <mat-icon>{{ isEditMode ? "check" : "edit" }}</mat-icon>
       </button>
     </mat-card-header>

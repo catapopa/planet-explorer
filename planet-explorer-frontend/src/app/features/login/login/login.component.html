@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span>Login</span>
+  <button mat-raised-button (click)="back()">Back</button>
+</mat-toolbar>
+
+<div class="login-container">
+  <form
+    (ngSubmit)="onLogin()"
+    style="display: flex; flex-direction: column; padding-top: 0.5rem"
+  >
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Username</mat-label>
+      <input matInput name="username" [(ngModel)]="username" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit">Login</button>
+  </form>
+</div>

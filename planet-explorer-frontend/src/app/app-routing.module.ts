@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PlanetListComponent } from './features/planet/planet-list/planet-list.component';
 import { PlanetDetailComponent } from './features/planet/planet-detail/planet-detail.component';
+import { LoginComponent } from './features/login/login/login.component';
 
 const routes: Routes = [
   { path: '', component: PlanetListComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'planet/:id', component: PlanetDetailComponent },
 ];
 

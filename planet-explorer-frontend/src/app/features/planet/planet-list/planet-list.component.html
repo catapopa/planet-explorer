@@ -1,5 +1,9 @@
-<mat-toolbar color="primary">
-  <span>🚀 Planet Explorer</span>
+<mat-toolbar color="primary" class="toolbar">
+  <span>Planet Explorer</span>
+  <button mat-raised-button *ngIf="!isLoggedIn" (click)="login()">Login</button>
+  <button mat-raised-button *ngIf="isLoggedIn" (click)="logout()">
+    Logout
+  </button>
 </mat-toolbar>
 
 <div *ngFor="let planet of planets" class="planet-grid">

@@ -1,4 +1,6 @@
 using PlanetExplorer.Api.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace PlanetExplorer.Api.Data;
 
@@ -9,8 +11,19 @@ public static class DbInitializer
         if (context.Planets.Any())
             return;
 
+        // Create user for one captain
+        var user1 = new User
+        {
+            Username = "captain",
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword("abacpower"),
+            Role = Role.Captain,
+        };
+
+        context.Users.Add(user1);
+        context.SaveChanges();
+
         // Create Captains
-        var captain1 = new Captain { Name = "Captain A" };
+        var captain1 = new Captain { Name = "Captain A", UserId = user1.Id };
         var captain2 = new Captain { Name = "Captain B" };
         var captain3 = new Captain { Name = "Captain C" };
 
