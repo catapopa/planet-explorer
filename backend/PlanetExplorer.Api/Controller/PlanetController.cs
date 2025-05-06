@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-// using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using PlanetExplorer.Api.Data;
 using PlanetExplorer.Api.Models;
 using PlanetExplorer.Api.Dtos;
@@ -41,7 +41,7 @@ public class PlanetsController : ControllerBase
     }
 
     // PUT: api/planets/5
-    // [Authorize(Roles = "Captain")]
+    [Authorize(Roles = "Captain")]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdatePlanet(int id, UpdatePlanetDto dto)
     {

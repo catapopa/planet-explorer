@@ -12,7 +12,12 @@
       </button>
     </mat-card-header>
 
-    <img mat-card-image [src]="planet.imageUrl" alt="{{ planet.name }}" />
+    <img
+      mat-card-image
+      [src]="planet.imageUrl"
+      loading="lazy"
+      alt="{{ planet.name }}"
+    />
 
     <mat-card-content>
       <ng-container *ngIf="!isEditMode">

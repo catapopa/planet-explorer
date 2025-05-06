@@ -29,7 +29,19 @@ export class LoginComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   onLogin() {
-    this.authService.login(this.username, this.password).subscribe();
+    this.authService.login(this.username, this.password).subscribe(
+      (response) => {
+        if (response) {
+          this.router.navigate(['/']);
+        } else {
+          alert('Invalid credentials');
+        }
+      },
+      (error) => {
+        console.error('Login error:', error);
+        alert('Invalid credentials');
+      }
+    );
   }
 
   back() {

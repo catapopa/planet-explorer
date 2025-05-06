@@ -44,8 +44,6 @@ export class PlanetDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.getPlanet(id);
     this.isCaptain = this.auth.isCaptain();
   }
 
@@ -57,12 +55,6 @@ export class PlanetDetailComponent implements OnInit {
     return (
       planet.exploredByTeam?.robots.map((robot) => robot.robotNumber) || []
     );
-  }
-
-  getPlanet(id: number): void {
-    this.planetService.getPlanet(id).subscribe((planet) => {
-      this.planet = planet;
-    });
   }
 
   updatePlanet(planet: UpdatePlanet) {
