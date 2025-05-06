@@ -35,7 +35,7 @@ export class PlanetListComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
   }
 
   logout() {
